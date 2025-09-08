@@ -1,57 +1,55 @@
 # Ex.No:1
 # Ex.Name:Write A CPP Program to allocate memory dynamically for a double array. (Note: p_array = new type [size]; )
 ## Aim:
-To write A CPP Program to allocate memory dynamically for an character variable. (Note: p_var = new typename;)
+To write A CPP Program to allocate memory dynamically for a double array.(Note: p_array = new type [size]; )
 
 
 ## Algorithm:
-Start
+1.Start the program.
 
-Define a class var_space with a public function allocateSpace().
+2.Input the size of the array from the user.
 
-Inside allocateSpace() function:
+3.Dynamically allocate memory for a long array using
+    long* p_array = new long[size];
 
-Dynamically allocate memory for a single character (ptr = new char).
+4.Display confirmation that the array has been created.
 
-Read a character from user input and store it in the allocated memory location (cin >> *ptr).
+5.Read array elements from the user and store them in the allocated memory.
 
-Display the character value stored (cout << "Character Value is : " << *ptr).
+6.Print all stored array elements in sequence.
 
-In the main() function:
-
-Create an object s of class var_space.
-
-Call the function s.allocateSpace().
-
-End
-
+7.Release the allocated memory using delete[] p_array; and display confirmation, then end the program.
 
 
 
 ## Program:
 ```
 #include <iostream>
-using namespace std; 
-class var_space
-{
-  public:
-  void allocateSpace()
-  {
-    char *ptr = new char;
-    cin >> *ptr;
-    cout << "Character Value is : " << *ptr;
-  }
-};
-int main()
-{
-   var_space s;
-   s.allocateSpace();
-   return 0;
+int main() {
+    int size;
+    std::cin >> size;
+    int* p_array = new int[size]; 
+    
+    std::cout << "Array Created" << std::endl;
+    
+    for (int i = 0; i < size; ++i) {
+        std::cin >> p_array[i];
+    }
+    
+    std::cout << "Array Values :" << std::endl;
+    
+    for (int i = 0; i < size; ++i) {
+        std::cout << p_array[i] << " ";
+    }
+    std::cout << std::endl;
+    delete[] p_array;  
+    std::cout << "Array Deleted" << std::endl;
+    return 0;
 }
-
 ```
+
 ## Output:
-<img width="1329" height="269" alt="image" src="https://github.com/user-attachments/assets/e65c2d88-9b0f-49ef-9d15-b48c31fef6da" />
+<img width="1248" height="557" alt="image" src="https://github.com/user-attachments/assets/dc4125b5-b3c4-4af9-8548-e3d940a9e272" />
 
 
 
