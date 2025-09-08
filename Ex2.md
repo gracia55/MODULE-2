@@ -1,67 +1,84 @@
 # Ex.No:2
-# Ex.Name:Write a CPP Program to overload a function to perform sum of two integers and sum of three integers
+# Ex.Name:Write A CPP Program to create class RectangleBox and calculate the volume of the rectangleBoxe use of static member variable in the class RectangleBox.
+
 ## Aim:
-To write a CPP Program to overload a function to perform sum of two integers and sum of three integers
+To write A CPP Program to create class RectangleBox and calculate the volume of the rectangleBoxe use of static member variable in the class RectangleBox.
 
 ## Algorithm:
-Start
+1.Start the program.
 
-Define a class Arithmetic with two overloaded member functions:
+2.Define a class RectangleBox with private members length, breadth, height and a static member objectCount.
 
-Add(int a, int b) → Calculates and prints the sum of two integers.
+3.Define a constructor to initialize dimensions and increment objectCount when each object is created.
 
-Add(float a, float b, float c) → Calculates and prints the sum of three floating-point numbers.
+4.Define a member function Volume() to calculate and return the volume of the rectangle box.
 
-In the main() function:
+5.Define a static function getObjectCount() to return the total number of objects created.
 
-Declare an object a of class Arithmetic.
+6.In main(), input values for two rectangle boxes and display the initial object count.
 
-Declare two integer variables a1 and a2.
-
-Read two integer inputs from the user (cin >> a1 >> a2).
-
-Call a.Add(a1, a2) to calculate and print their sum.
-
-Declare three integer variables b1, b2, and b3.
-
-Read three integer inputs from the user (cin >> b1 >> b2 >> b3).
-
-Call a.Add(b1, b2, b3) → implicit type conversion occurs (integers promoted to floats) → calculates and prints the sum of three numbers.
-
-End
+7.Create objects, calculate their volumes, display them, and finally print the total object count, then end the program.
 
 
 
 
 ## Program:
 ```
-#include<iostream>
+#include <iostream>
+ 
 using namespace std;
-class Arithmetic{
-  public:
-  void Add(int a,int b){
-      cout << "Sum of two Numbers=" << a+b << endl;
-  }
-  void Add(float a,float b,float c){
-      cout << "Sum of three Numbers=" << a+b+c;
-  }
+
+class RectangleBox {
+   public:
+      int static objectCount,stacount;
+      // Constructor definition
+      RectangleBox(double l, double b, double h) {
+         
+         length = l;
+         breadth = b;
+         height = h;
+         cout <<"Constructor called." <<endl;
+         // Increase every time object is created
+         objectCount++;
+         stacount++;
+      }
+      double Volume() {
+         return length * breadth * height;
+      }
+      
+   private:
+      double length;     // Length of a box
+      double breadth;    // Breadth of a box
+      double height;     // Height of a box
 };
-int main()
+
+// Initialize static member of class Box
+int RectangleBox::objectCount = 0;
+int RectangleBox::stacount = 0;
+
+int main(void) 
 {
-    Arithmetic a;
-    int a1,a2;
-    cin >> a1 >> a2;
-    a.Add(a1,a2);
-    int b1,b2,b3;
-    cin >> b1 >> b2 >> b3;
-    a.Add(b1,b2,b3);
-    return 0;
+      
+   int l,b,h,l1,b1,h1;
+   cin>>l>>b>>h>>l1>>b1>>h1;
+   cout<<"Inital Stage Count: "<<RectangleBox::stacount << endl;
+   RectangleBox s1(l,b,h);    // Declare box1
+   cout << "Volume :" << s1.Volume()<<endl;
+   
+   RectangleBox s2(l1,b1,h1);    // Declare box2
+   cout << "Volume :" << s2.Volume()<<endl;
+   // Print total number of objects.
+   cout << "Total objects: " << RectangleBox::objectCount << endl;
+   cout << "Final Stage Count: " << RectangleBox::objectCount;
+   return 0;
 }
 ```
-## Output:
 
-<img width="1329" height="269" alt="image" src="https://github.com/user-attachments/assets/4f64624a-17f8-44a6-8386-8b0e658c4176" />
+## Output:
+<img width="1250" height="628" alt="image" src="https://github.com/user-attachments/assets/ba19291f-30dd-4881-a0a5-271fd9b3eb46" />
+
 
 
 ## Result:
 Hence the program is executed successfully.
+
